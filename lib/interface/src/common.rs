@@ -1,9 +1,18 @@
+// Copyright (C) 2025 Cory Voltz <voltzc@twchl.net>
+
+//!	VoltOS - Network Interface Library
+//!
+//!	File:           srctree/lib/interface/src/common.rs
+//!
+//!	Description:    Common Definitions and Types
+
 use bitflags::bitflags;
 use ipnet::{IpNet, Ipv4Net, Ipv6Net};
 use slotmap::{SlotMap, new_key_type};
 use std::net::{IpAddr, Ipv4Addr, Ipv6Addr};
 use std::time::SystemTime;
 
+/// Interface Key for Unique Identity
 new_key_type! { pub struct IfKey; }
 
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]

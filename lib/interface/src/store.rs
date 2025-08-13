@@ -1,3 +1,11 @@
+// Copyright (C) 2025 Cory Voltz <voltzc@twchl.net>
+
+//!	VoltOS - Network Interface Library
+//!
+//!	File:           srctree/lib/interface/src/store.rs
+//!
+//!	Description:    Interface Information Datastore
+
 use crate::common::*;
 
 use indexmap::IndexMap;
