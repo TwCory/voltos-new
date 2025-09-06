@@ -1,0 +1,58 @@
+module voltos-interface-common {
+    yang-version 1.1;
+    prefix voltos-ifc;
+
+
+    grouping interface-grouping {
+        choice interface-choice {
+            leaf AppleTalk {
+                description
+                    "AppleTalk Interface";
+            }
+            leaf ARCNET {
+                description
+                    "Attached Resource Computer Network Interface";
+            }
+            leaf Async {
+                description
+                    "Asynchronous Serial Interface";
+            }
+            leaf ATM {
+                description
+                    "Asynchronous Transfer Mode Interface";
+            }
+            leaf ATM-ACR {
+                description
+                    "ATM Interface with Access Circuit Redundancy Support";
+            }
+            leaf AX25 {
+                description
+                    "Amateur Radio X.25 Interface";
+            }
+            leaf BDI {
+                description
+                    "Bridge-Domain Interface";
+            }
+            leaf BVI {
+                description
+                    "Bridge-Domain Virtual Interface";
+            }
+            leaf Loopback {
+                description
+                    "Loopback Interface";
+            }
+            leaf NVE {
+                description
+                    "Network Virtualization Endpoint (NVE) Interface";
+            }
+            leaf Tunnel {
+                description
+                    "Generic Tunnel Interface"
+            }
+            leaf VLAN {
+                description
+                    "VLAN Switched Virtual Interface";
+            }
+        }
+    }
+}
