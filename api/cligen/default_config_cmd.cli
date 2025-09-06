@@ -1,0 +1,1 @@
+default("Set a command to its defaults") @cfg-default;
