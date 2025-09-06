@@ -1,0 +1,33 @@
+
+boot-end-marker("boot-end-marker")              @boot-end-marker;
+boot-start-marker("boot-start-marker")          @boot-start-marker
+hostname("Set the system's network name")       @hostname;
+l2("Layer 2 configuration")                     @l2;
+
+@boot-end-marker,
+    cli_auto_set("/voltos:main/boot-end-marker", "");
+
+@boot-start-marker,
+    cli_auto_set("/voltos:main/boot-start-marker", "");
+
+@hostname <WORD:string("Host name string")>,
+    cli_auto_set("/voltos:main/hostname", "<WORD>");
+
+@l2 {
+    router-id("Configure layer 2 identifier") <RID:ipv4addr("L2 Router ID")>,
+        cli_auto_set("/voltos:main/l2/router-id", "<RID>");
+}
+
+@cfg-no {
+    @boot-end-marker,
+        cli_auto_delete("/voltos:main/boot-end-marker");
+    @boot-start-marker,
+        cli_auto_delete("/voltos:main/boot-start-marker");
+    @hostname,
+        cli_auto_delete("/voltos:main/hostname");
+    @l2 {
+        router-id("Configure layer 2 identifier"),
+            cli_auto_delete("/voltos:main/l2/router-id");
+    }
+}
+
