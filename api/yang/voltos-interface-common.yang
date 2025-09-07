@@ -1,10 +1,50 @@
 module voltos-interface-common {
     yang-version 1.1;
+    namespace "http://coralt.org/ns/yang/voltos-interface-common";
     prefix voltos-ifc;
 
 
+    organization
+        "Coralt Networks";
+    contact
+        "Coralt Networks
+         
+         User List:         <mailto:user-group@coralt.org>
+         Developer List:    <mailto:dev-group@coralt.org>
+         
+         Documentation:     http://docs.coralt.org/voltos";
+    description
+        "Core/System Main YANG Module for VoltOS
+         Copyright (C) 2025 Coralt Networks
+         MIT License In Use.";
+
+    revision 2025-09-07 {
+        description
+            "- Completed list of interface grouping options";
+    }
+    revision 2025-08-16 {
+        description
+            "Initial revision";
+    }
+
     grouping interface-grouping {
         choice interface-choice {
+            leaf AMT {
+                description
+                    "Automatic Multicast Tunnel Interface";
+            }
+            leaf AppGigabitEthernet {
+                description
+                    "App-Hosting IEEE 802.3z Gigabit Ethernet Interface";
+            }
+            leaf AppNav-Compress {
+                description
+                    "Service-Context Virtual Interface Compress";
+            }
+            leaf AppNav-UnCompress {
+                description
+                    "Service-Context Virtual Interface UnCompress";
+            }
             leaf AppleTalk {
                 description
                     "AppleTalk Interface";
@@ -25,33 +65,249 @@ module voltos-interface-common {
                 description
                     "ATM Interface with Access Circuit Redundancy Support";
             }
+            leaf Auto-Template {
+                description
+                    "Auto-Template Interface";
+            }
             leaf AX25 {
                 description
                     "Amateur Radio X.25 Interface";
+            }
+            leaf BATMAN {
+                description
+                    "B.A.T.M.A.N. Wireless Mesh Router Interface";
             }
             leaf BDI {
                 description
                     "Bridge-Domain Interface";
             }
+            leaf Bluetooth {
+                description
+                    "Bluetooth(R) Interface";
+            }
+            leaf Bundle {
+                description
+                    "Bundle Interface";
+            }
             leaf BVI {
                 description
                     "Bridge-Domain Virtual Interface";
+            }
+            leaf CAN {
+                description
+                    "Controller Area Network Interface";
+            }
+            leaf Cellular {
+                description
+                    "Cellular Interface";
+            }
+            leaf Dialer {
+                description
+                    "Dialer Interface";
+            }
+            leaf DOCSIS {
+                description
+                    "Data Over Cable Service Interface Specification Interface";
+            }
+            leaf DSA {
+                description
+                    "Distributed Switch Architecture Interface";
+            }
+            leaf Embedded-Service-Engine {
+                description
+                    "Embedded Service Engine Interface";
+            }
+            leaf ERSPAN {
+                description
+                    "Encapsulated Remote Switched Port Analyzer Interface";
+            }
+            leaf Ethernet {
+                description
+                    "IEEE 802.3 Ethernet Interface";
+            }
+            leaf FDDI {
+                description
+                    "Fiber Distributed Data Interface";
+            }
+            leaf FibreChannel {
+                description
+                    "Fibre-Channel Interface";
+            }
+            leaf GMPLS {
+                description
+                    "MPLS Virtual Interface";
+            }
+            leaf HIPPI {
+                description
+                    "High-Performance Parallel Interface";
+            }
+            leaf HSR {
+                description
+                    "High-Availability Seamless Redundancy Interface";
+            }
+            leaf IFB {
+                description
+                    "Intermediate Function Block Interface";
+            }
+            leaf InfiniBand {
+                description
+                    "InfiniBand Interface";
+            }
+            leaf ISDN-BRI {
+                description
+                    "ISDN Basic Rate Interface";
+            }
+            leaf ISDN-PRI {
+                description
+                    "ISDN Primary Rate Interface";
+            }
+            leaf LISP {
+                description
+                    "Locator/ID Separation Protocol Virtual Interface";
             }
             leaf Loopback {
                 description
                     "Loopback Interface";
             }
+            leaf MFR {
+                description
+                    "Multilink Frame Relay Interface";
+            }
+            leaf Multilink {
+                description
+                    "Multilink-Group Interface";
+            }
+            leaf Nebula {
+                description
+                    "Nebula Mesh SDN Interface";
+            }
+            leaf Netlink-Monitor {
+                description
+                    "Linux Netlink Monitor Interface";
+            }
+            leaf NFC {
+                description
+                    "Nearfield Communication Interface";
+            }
             leaf NVE {
                 description
                     "Network Virtualization Endpoint (NVE) Interface";
             }
+            leaf OmniPath {
+                description
+                    "Intel(R) Omni-Path Architecture Interface";
+            }
+            leaf OpenConnect {
+                description
+                    "OpenConnect SSL VPN Interface";
+            }
+            leaf OpenVPN {
+                description
+                    "OpenVPN(TM) System Interface";
+            }
+            leaf Overlay {
+                description
+                    "Overlay Interface";
+            }
+            leaf Parallel {
+                description
+                    "Parallel Interface";
+            }
+            leaf Port-Channel {
+                description
+                    "Ethernet Channel of Multiple Interfaces";
+            }
+            leaf Pseudowire {
+                description
+                    "Pseudowire Interface";
+            }
+            leaf Serial {
+                description
+                    "Serial Interface";
+            }
+            leaf SM {
+                description
+                    "SM Interface";
+            }
+            leaf SoftEther {
+                description
+                    "SoftEther(R) VPN Tunnel Interface";
+            }
+            leaf SONET {
+                description
+                    "Synchronous Optical Network Interface";
+            }
+            leaf Stunnel {
+                description
+                    "Stunnel Proxy Service Interface";
+            }
+            leaf Tailscale {
+                description
+                    "Tailscale(R) SD-Mesh VPN Interface";
+            }
+            leaf TokenBus {
+                description
+                    "IEEE 802.4 Token Bus Network";
+            }
+            leaf TokenRing {
+                description
+                    "IEEE 802.5 Token Ring Interface";
+            }
             leaf Tunnel {
                 description
-                    "Generic Tunnel Interface"
+                    "Tunnel Interface"
+            }
+            leaf VCAN {
+                description
+                    "Virtual CAN Interface";
+            }
+            leaf Virtual-Ethernet {
+                description
+                    "Virtual Ethernet Tunnel Interface";
+            }
+            leaf Virtual-PPP {
+                description
+                    "Virtual PPP Interface";
+            }
+            leaf Virtual-Template {
+                description
+                    "Virtual Template Interface";
+            }
+            leaf Virtual-TokenRing {
+                description
+                    "Virtual Token Ring Interface";
+            }
+            leaf VirtualPortGroup {
+                description
+                    "Virtual Port Group Interface";
             }
             leaf VLAN {
                 description
                     "VLAN Switched Virtual Interface";
+            }
+            leaf VXCAN {
+                description
+                    "Virtual CAN Tunnel Interface";
+            }
+            leaf WireGuard {
+                description
+                    "WireGuard Tunnel Interface";
+            }
+            leaf WLAN {
+                description
+                    "Wireless LAN Interface";
+            }
+            leaf WPAN {
+                description
+                    "Wireless PAN Interface";
+            }
+            leaf X25 {
+                description
+                    "ISO/IEC X.25 Interface";
+            }
+            leaf ZeroTier {
+                description
+                    "ZeroTier(R) SD-Mesh VPN Interface";
             }
         }
     }
