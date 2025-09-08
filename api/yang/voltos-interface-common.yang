@@ -14,10 +14,14 @@ module voltos-interface-common {
          
          Documentation:     http://docs.coralt.org/voltos";
     description
-        "Core/System Main YANG Module for VoltOS
+        "VoltOS Common Interface Information YANG Model
          Copyright (C) 2025 Coralt Networks
          MIT License In Use.";
 
+    revision 2025-09-08 {
+        description
+            "- Added Ethernet interface sub-types";
+    }
     revision 2025-09-07 {
         description
             "- Completed list of interface grouping options";
@@ -29,285 +33,1224 @@ module voltos-interface-common {
 
     grouping interface-grouping {
         choice interface-choice {
-            leaf AMT {
-                description
-                    "Automatic Multicast Tunnel Interface";
-            }
-            leaf AppGigabitEthernet {
-                description
-                    "App-Hosting IEEE 802.3z Gigabit Ethernet Interface";
-            }
             leaf AppNav-Compress {
                 description
                     "Service-Context Virtual Interface Compress";
+                type uint16;
             }
             leaf AppNav-UnCompress {
                 description
                     "Service-Context Virtual Interface UnCompress";
+                type uint16;
             }
             leaf AppleTalk {
                 description
                     "AppleTalk Interface";
+                type string;
             }
             leaf ARCNET {
                 description
                     "Attached Resource Computer Network Interface";
+                type string;
             }
             leaf Async {
                 description
                     "Asynchronous Serial Interface";
+                type string;
             }
             leaf ATM {
                 description
                     "Asynchronous Transfer Mode Interface";
+                type string;
+            }
+            container ATM-SubIf {
+                leaf ATM {
+                    type string;
+                }
             }
             leaf ATM-ACR {
                 description
                     "ATM Interface with Access Circuit Redundancy Support";
+                type string {
+                    pattern '[0-9]';
+                }
+            }
+            container ATM-ACR-SubIf {
+                leaf ATM-ACR {
+                    type string {
+                        pattern '[0-9]\.([0-9]/){3}[0-9]';
+                    }
+                }
             }
             leaf Auto-Template {
                 description
                     "Auto-Template Interface";
+                type uint16;
             }
             leaf AX25 {
                 description
                     "Amateur Radio X.25 Interface";
+                type string;
             }
             leaf BATMAN {
                 description
                     "B.A.T.M.A.N. Wireless Mesh Router Interface";
+                type uint16;
             }
             leaf BDI {
                 description
                     "Bridge-Domain Interface";
+                type string;
             }
             leaf Bluetooth {
                 description
                     "Bluetooth(R) Interface";
+                type string;
             }
             leaf Bundle {
                 description
                     "Bundle Interface";
+                type uint32;
             }
             leaf BVI {
                 description
                     "Bridge-Domain Virtual Interface";
+                type string;
             }
             leaf CAN {
                 description
                     "Controller Area Network Interface";
+                type string;
             }
             leaf Cellular {
                 description
                     "Cellular Interface";
+                type string;
             }
             leaf Dialer {
                 description
                     "Dialer Interface";
+                type string;
             }
             leaf DOCSIS {
                 description
                     "Data Over Cable Service Interface Specification Interface";
+                type string;
             }
             leaf DSA {
                 description
                     "Distributed Switch Architecture Interface";
+                type string;
             }
             leaf Embedded-Service-Engine {
                 description
                     "Embedded Service Engine Interface";
+                type string;
             }
             leaf ERSPAN {
                 description
                     "Encapsulated Remote Switched Port Analyzer Interface";
+                type uint16;
             }
             leaf Ethernet {
                 description
                     "IEEE 802.3 Ethernet Interface";
+                type string;
+            }
+            leaf FastEthernet {
+                description
+                    "IEEE 802.3u Fast Ethernet Interface";
+                type string;
+            }
+            leaf GigabitEthernet {
+                description
+                    "IEEE 802.3z Gigabit Ethernet Interface";
+                type string;
+            }
+            leaf AppGigabitEthernet {
+                description
+                    "App-Hosting IEEE 802.3z Gigabit Ethernet Interface";
+                type string;
+            }
+            leaf TwoGigabitEthernet {
+                description
+                    "IEEE 802.3bz 2.5 Gigabit Ethernet Interface";
+                type string;
+            }
+            leaf FiveGigabitEthernet {
+                description
+                    "IEEE 802.3bz Five Gigabit Ethernet Interface";
+                type string;
+            }
+            leaf TenGigabitEthernet {
+                description
+                    "IEEE 802.3ae Ten Gigabit Ethernet Interface";
+                type string;
+            }
+            leaf TwentyFiveGigE {
+                description
+                    "IEEE 802.3by 25 Gigabit Ethernet Interface";
+                type string;
+            }
+            leaf FortyGigabitEthernet {
+                description
+                    "IEEE 802.3bm Forty Gigabit Ethernet Interface";
+                type string;
+            }
+            leaf FiftyGigabitEthernet {
+                description
+                    "IEEE 802.3cd Fifty Gigabit Ethernet Interface";
+                type string;
+            }
+            leaf HundredGigE {
+                description
+                    "IEEE 802.3bm 100 Gigabit Ethernet Interface";
+                type string;
+            }
+            leaf TwoHundredGigE {
+                description
+                    "IEEE 802.3dj 200 Gigabit Ethernet Interface";
+                type string;
+            }
+            leaf FourHundredGigE {
+                description
+                    "IEEE 802.3dj 400 Gigabit Ethernet Interface";
+                type string;
+            }
+            leaf EightHundredGigE {
+                description
+                    "IEEE 802.3dj 800 Gigabit Ethernet Interface";
+                type string;
+            }
+            leaf TerabitEthernet {
+                description
+                    "IEEE 802.3dj 1.6 Terabit Ethernet Interface";
+                type string;
             }
             leaf FDDI {
                 description
                     "Fiber Distributed Data Interface";
+                type string;
             }
             leaf FibreChannel {
                 description
                     "Fibre-Channel Interface";
+                type string;
             }
             leaf GMPLS {
                 description
                     "MPLS Virtual Interface";
+                type string;
             }
             leaf HIPPI {
                 description
                     "High-Performance Parallel Interface";
+                type string;
             }
             leaf HSR {
                 description
                     "High-Availability Seamless Redundancy Interface";
+                type uint16;
             }
             leaf IFB {
                 description
                     "Intermediate Function Block Interface";
+                type uint16;
             }
             leaf InfiniBand {
                 description
                     "InfiniBand Interface";
+                type string;
             }
             leaf ISDN-BRI {
                 description
                     "ISDN Basic Rate Interface";
+                type string;
             }
             leaf ISDN-PRI {
                 description
                     "ISDN Primary Rate Interface";
+                type string;
+            }
+            leaf L2LISP {
+                description
+                    "Layer 2 Locator/ID Separation Protocol Virtual Interface";
+                type string;
+            }
+            container L2LISP-SubIf {
+                description
+                    "Layer 2 Locator/ID Separation Protocol Virtual Interface";
+                leaf L2LISP {
+                    type string {
+                        pattern '[0-9]*(. ?[1-9][0-9]*)*';
+                    }
+                }
             }
             leaf LISP {
                 description
                     "Locator/ID Separation Protocol Virtual Interface";
+                type string;
+            }
+            container LISP-SubIf {
+                description
+                    "Locator/ID Separation Protocol Virtual Interface";
+                leaf LISP {
+                    type string {
+                        pattern '[0-9]*(. ?[1-9][0-9]*)*';
+                    }
+                }
             }
             leaf Loopback {
                 description
                     "Loopback Interface";
+                type uint32 {
+                    range "0..2147483647";
+                }
             }
             leaf MFR {
                 description
                     "Multilink Frame Relay Interface";
+                type uint32 {
+                    range "0..2147483647";
+                }
             }
             leaf Multilink {
                 description
                     "Multilink-Group Interface";
+                type uint16;
             }
             leaf Nebula {
                 description
                     "Nebula Mesh SDN Interface";
+                type uint16;
             }
             leaf Netlink-Monitor {
                 description
                     "Linux Netlink Monitor Interface";
+                type uint16;
             }
             leaf NFC {
                 description
                     "Nearfield Communication Interface";
+                type string;
             }
             leaf NVE {
                 description
                     "Network Virtualization Endpoint (NVE) Interface";
+                type uint16;
             }
             leaf OmniPath {
                 description
                     "Intel(R) Omni-Path Architecture Interface";
+                type string;
             }
             leaf OpenConnect {
                 description
                     "OpenConnect SSL VPN Interface";
+                type uint16;
             }
             leaf OpenVPN {
                 description
                     "OpenVPN(TM) System Interface";
+                type uint16;
             }
             leaf Overlay {
                 description
                     "Overlay Interface";
+                type uint16;
             }
             leaf Parallel {
                 description
                     "Parallel Interface";
+                type string;
             }
             leaf Port-Channel {
                 description
                     "Ethernet Channel of Multiple Interfaces";
+                type uint32;
+            }
+            container Port-Channel-SubIf {
+                leaf Port-Channel {
+                    type string;
+                }
             }
             leaf Pseudowire {
                 description
                     "Pseudowire Interface";
+                type uint32;
             }
             leaf Serial {
                 description
                     "Serial Interface";
+                type string;
+            }
+            container Serial-SubIf {
+                leaf Serial {
+                    type string;
+                }
             }
             leaf SM {
                 description
                     "SM Interface";
+                type string;
             }
             leaf SoftEther {
                 description
                     "SoftEther(R) VPN Tunnel Interface";
+                type uint16;
             }
             leaf SONET {
                 description
                     "Synchronous Optical Network Interface";
+                type string;
             }
             leaf Stunnel {
                 description
                     "Stunnel Proxy Service Interface";
+                type uint16;
             }
             leaf Tailscale {
                 description
                     "Tailscale(R) SD-Mesh VPN Interface";
+                type uint16;
             }
             leaf TokenBus {
                 description
                     "IEEE 802.4 Token Bus Network";
+                type string;
             }
             leaf TokenRing {
                 description
                     "IEEE 802.5 Token Ring Interface";
+                type string;
             }
             leaf Tunnel {
                 description
                     "Tunnel Interface"
+                type uint32;
             }
             leaf VCAN {
                 description
                     "Virtual CAN Interface";
+                type uint16;
             }
             leaf Virtual-Ethernet {
                 description
                     "Virtual Ethernet Tunnel Interface";
+                type uint16;
             }
             leaf Virtual-PPP {
                 description
                     "Virtual PPP Interface";
+                type uint16;
             }
             leaf Virtual-Template {
                 description
                     "Virtual Template Interface";
+                type uint16;
             }
             leaf Virtual-TokenRing {
                 description
                     "Virtual Token Ring Interface";
+                type uint16;
             }
             leaf VirtualPortGroup {
                 description
                     "Virtual Port Group Interface";
+                type uint16;
             }
             leaf VLAN {
                 description
                     "VLAN Switched Virtual Interface";
+                type uint16;
             }
             leaf VXCAN {
                 description
                     "Virtual CAN Tunnel Interface";
+                type uint16;
             }
             leaf WireGuard {
                 description
                     "WireGuard Tunnel Interface";
+                type uint16;
             }
             leaf WLAN {
                 description
                     "Wireless LAN Interface";
+                type string;
             }
             leaf WPAN {
                 description
                     "Wireless PAN Interface";
+                type string;
             }
             leaf X25 {
                 description
                     "ISO/IEC X.25 Interface";
+                type string;
             }
             leaf ZeroTier {
                 description
                     "ZeroTier(R) SD-Mesh VPN Interface";
+                type uint16;
+            }
+        }
+    }
+
+    grouping interface-grouping-list {
+        list AppNav-Compress {
+            description
+                "Service-Context Virtual Interface Compress";
+            key "AppNav-Compress";
+            leaf AppNav-Compress {
+                type uint16;
+            }
+        }
+        list AppNav-UnCompress {
+            description
+                "Service-Context Virtual Interface UnCompress";
+            key "AppNav-UnCompress";
+            leaf AppNav-UnCompress {
+                type uint16;
+            }
+        }
+        list AppleTalk {
+            description
+                "AppleTalk Interface";
+            key "AppleTalk";
+            leaf AppleTalk {
+                type string;
+            }
+        }
+        list ARCNET {
+            description
+                "Attached Resource Computer Network Interface";
+            key "ARCNET";
+            leaf ARCNET {
+                type string;
+            }
+        }
+        list Async {
+            description
+                "Asynchronous Serial Interface";
+            key "Async";
+            leaf Async {
+                type string;
+            }
+        }
+        leaf ATM {
+            description
+                "Asynchronous Transfer Mode Interface";
+            key "ATM";
+            leaf ATM {
+                type string;
+            }
+        }
+        container ATM-SubIf {
+            list ATM {
+                key "ATM";
+                leaf ATM {
+                    type string;
+                }
+            }
+        }
+        leaf ATM-ACR {
+            description
+                "ATM Interface with Access Circuit Redundancy Support";
+            key "ATM-ACR";
+            leaf ATM-ACR {
+                type string {
+                    pattern '[0-9]';
+                }
+            }
+        }
+        container ATM-ACR-SubIf {
+            list ATM-ACR {
+                key "ATM-ACR";
+                leaf ATM-ACR {
+                    type string {
+                        pattern '[0-9]\.([0-9]/){3}[0-9]';
+                    }
+                }
+            }
+        }
+        list Auto-Template {
+            description
+                "Auto-Template Interface";
+            key "Auto-Template";
+            leaf Auto-Template {
+                type uint16;
+            }
+        }
+        list AX25 {
+            description
+                "Amateur Radio X.25 Interface";
+            key "AX25";
+            leaf AX25 {
+                type string;
+            }
+        }
+        list BATMAN {
+            description
+                "B.A.T.M.A.N. Wireless Mesh Router Interface";
+            key "BATMAN";
+            leaf BATMAN {
+                type uint16;
+            }
+        }
+        list BDI {
+            description
+                "Bridge-Domain Interface";
+            key "BDI";
+            leaf BDI {
+                type string;
+            }
+        }
+        list Bluetooth {
+            description
+                "Bluetooth(R) Interface";
+            key "Bluetooth";
+            leaf Bluetooth {
+                type string;
+            }
+        }
+        list Bundle {
+            description
+                "Bundle Interface";
+            key "Bundle";
+            leaf Bundle {
+                type uint32;
+            }
+        }
+        list BVI {
+            description
+                "Bridge-Domain Virtual Interface";
+            key "BVI";
+            leaf BVI {
+                type string;
+            }
+        }
+        list CAN {
+            description
+                "Controller Area Network Interface";
+            key "CAN";
+            leaf CAN {
+                type string;
+            }
+        }
+        list Cellular {
+            description
+                "Cellular Interface";
+            key "Cellular";
+            leaf Cellular {
+                type string;
+            }
+        }
+        list Dialer {
+            description
+                "Dialer Interface";
+            key "Dialer";
+            leaf Dialer {
+                type string;
+            }
+        }
+        list DOCSIS {
+            description
+                "Data Over Cable Service Interface Specification Interface";
+            key "DOCSIS";
+            leaf DOCSIS {
+                type string;
+            }
+        }
+        list DSA {
+            description
+                "Distributed Switch Architecture Interface";
+            key "DSA";
+            leaf DSA {
+                type string;
+            }
+        }
+        list Embedded-Service-Engine {
+            description
+                "Embedded Service Engine Interface";
+            key "Embedded-Service-Engine";
+            leaf Embedded-Service-Engine {
+                type string;
+            }
+        }
+        list ERSPAN {
+            description
+                "Encapsulated Remote Switched Port Analyzer Interface";
+            key "ERSPAN";
+            leaf ERSPAN {
+                type uint16;
+            }
+        }
+        list Ethernet {
+            description
+                "IEEE 802.3 Ethernet Interface";
+            key "Ethernet";
+            leaf Ethernet {
+                type string;
+            }
+        }
+        list FastEthernet {
+            description
+                "IEEE 802.3u Fast Ethernet Interface";
+            key "FastEthernet";
+            leaf FastEthernet {
+                type string;
+            }
+        }
+        list GigabitEthernet {
+            description
+                "IEEE 802.3z Gigabit Ethernet Interface";
+            key "GigabitEthernet";
+            leaf GigabitEthernet {
+                type string;
+            }
+        }
+        list AppGigabitEthernet {
+            description
+                "App-Hosting IEEE 802.3z Gigabit Ethernet Interface";
+            key "AppGigabitEthernet";
+            leaf AppGigabitEthernet {
+                type string;
+            }
+        }
+        list TwoGigabitEthernet {
+            description
+                "IEEE 802.3bz 2.5 Gigabit Ethernet Interface";
+            key "TwoGigabitEthernet";
+            leaf TwoGigabitEthernet {
+                type string;
+            }
+        }
+        list FiveGigabitEthernet {
+            description
+                "IEEE 802.3bz Five Gigabit Ethernet Interface";
+            key "FiveGigabitEthernet";
+            leaf FiveGigabitEthernet {
+                type string;
+            }
+        }
+        list TenGigabitEthernet {
+            description
+                "IEEE 802.3ae Ten Gigabit Ethernet Interface";
+            key "TenGigabitEthernet";
+            leaf TenGigabitEthernet {
+                type string;
+            }
+        }
+        list TwentyFiveGigE {
+            description
+                "IEEE 802.3by 25 Gigabit Ethernet Interface";
+            key "TwentyFiveGigE";
+            leaf TwentyFiveGigE {
+                type string;
+            }
+        }
+        list FortyGigabitEthernet {
+            description
+                "IEEE 802.3bm Forty Gigabit Ethernet Interface";
+            key "FortyGigabitEthernet";
+            leaf FortyGigabitEthernet {
+                type string;
+            }
+        }
+        list FiftyGigabitEthernet {
+            description
+                "IEEE 802.3cd Fifty Gigabit Ethernet Interface";
+            key "FiftyGigabitEthernet";
+            leaf FiftyGigabitEthernet {
+                type string;
+            }
+        }
+        list HundredGigE {
+            description
+                "IEEE 802.3bm 100 Gigabit Ethernet Interface";
+            key "HundredGigE";
+            leaf HundredGigE {
+                type string;
+            }
+        }
+        list TwoHundredGigE {
+            description
+                "IEEE 802.3dj 200 Gigabit Ethernet Interface";
+            key "TwoHundredGigE";
+            leaf TwoHundredGigE {
+                type string;
+            }
+        }
+        list FourHundredGigE {
+            description
+                "IEEE 802.3dj 400 Gigabit Ethernet Interface";
+            key "FourHundredGigE";
+            leaf FourHundredGigE {
+                type string;
+            }
+        }
+        list EightHundredGigE {
+            description
+                "IEEE 802.3dj 800 Gigabit Ethernet Interface";
+            key "EightHundredGigE";
+            leaf EightHundredGigE {
+                type string;
+            }
+        }
+        list TerabitEthernet {
+            description
+                "IEEE 802.3dj 1.6 Terabit Ethernet Interface";
+            key "TerabitEthernet";
+            leaf TerabitEthernet {
+                type string;
+            }
+        }
+        list FDDI {
+            description
+                "Fiber Distributed Data Interface";
+            key "FDDI";
+            leaf FDDI {
+                type string;
+            }
+        }
+        list FibreChannel {
+            description
+                "Fibre-Channel Interface";
+            key "FibreChannel";
+            leaf FibreChannel {
+                type string;
+            }
+        }
+        list GMPLS {
+            description
+                "MPLS Virtual Interface";
+            key "GMPLS";
+            leaf GMPLS {
+                type string;
+            }
+        }
+        list HIPPI {
+            description
+                "High-Performance Parallel Interface";
+            key "HIPPI";
+            leaf HIPPI {
+                type string;
+            }
+        }
+        list HSR {
+            description
+                "High-Availability Seamless Redundancy Interface";
+            key "HSR";
+            leaf HSR {
+                type uint16;
+            }
+        }
+        list IFB {
+            description
+                "Intermediate Function Block Interface";
+            key "IFB";
+            leaf IFB {
+                type uint16;
+            }
+        }
+        list InfiniBand {
+            description
+                "InfiniBand Interface";
+            key "InfiniBand";
+            leaf InfiniBand {
+                type string;
+            }
+        }
+        list ISDN-BRI {
+            description
+                "ISDN Basic Rate Interface";
+            key "ISDN-BRI";
+            leaf ISDN-PRI {
+                type string;
+            }
+        }
+        list ISDN-PRI {
+            description
+                "ISDN Primary Rate Interface";
+            key "ISDN-PRI";
+            leaf ISDN-PRI {
+                type string;
+            }
+        }
+        list L2LISP {
+            description
+                "Layer 2 Locator/ID Separation Protocol Virtual Interface";
+            key "L2LISP";
+            leaf L2LISP {
+                type string;
+            }
+        }
+        container L2LISP-SubIf {
+            description
+                "Layer 2 Locator/ID Separation Protocol Virtual Interface";
+            list L2LISP {
+                key "L2LISP";
+                leaf L2LISP {
+                    type string {
+                        pattern '[0-9]*(. ?[1-9][0-9]*)*';
+                    }
+                }
+                
+            }
+        }
+        list LISP {
+            description
+                "Locator/ID Separation Protocol Virtual Interface";
+            key "LISP";
+            leaf LISP {
+                type string;
+            }
+        }
+        container LISP-SubIf {
+            description
+                "Locator/ID Separation Protocol Virtual Interface";
+            list LISP {
+                key "LISP";
+                leaf LISP {
+                    type string {
+                        pattern '[0-9]*(. ?[1-9][0-9]*)*';
+                    }
+                }
+            }
+        }
+        list Loopback {
+            description
+                "Loopback Interface";
+            key "Loopback";
+            leaf Loopback {
+                type uint32 {
+                    range "0..2147483647";
+                }
+            }
+        }
+        list MFR {
+            description
+                "Multilink Frame Relay Interface";
+            key "MFR";
+            leaf MFR {
+                type uint32 {
+                    range "0..2147483647";
+                }
+            }
+        }
+        list Multilink {
+            description
+                "Multilink-Group Interface";
+            key "Multilink";
+            leaf Multilink {
+                type uint16;
+            }
+        }
+        list Nebula {
+            description
+                "Nebula Mesh SDN Interface";
+            key "Nebula";
+            leaf Nebula {
+                type uint16;
+            }
+        }
+        list Netlink-Monitor {
+            description
+                "Linux Netlink Monitor Interface";
+            key "Netlink-Monitor";
+            leaf Netlink-Monitor {
+                type uint16;
+            }
+        }
+        list NFC {
+            description
+                "Nearfield Communication Interface";
+            key "NFC";
+            leaf NFC {
+                type string;
+            }
+        }
+        list NVE {
+            description
+                "Network Virtualization Endpoint (NVE) Interface";
+            key "NVE";
+            leaf NVE {
+                type uint16;
+            }
+        }
+        list OmniPath {
+            description
+                "Intel(R) Omni-Path Architecture Interface";
+            key "OmniPath";
+            leaf OmniPath {
+                type string;
+            }
+        }
+        list OpenConnect {
+            description
+                "OpenConnect SSL VPN Interface";
+            key "OpenConnect";
+            leaf OpenConnect {
+                type uint16;
+            }
+        }
+        list OpenVPN {
+            description
+                "OpenVPN(TM) System Interface";
+            key "OpenVPN";
+            leaf OpenVPN {
+                type uint16;
+            }
+        }
+        list Overlay {
+            description
+                "Overlay Interface";
+            key "Overlay";
+            leaf Overlay {
+                type uint16;
+            }
+        }
+        list Parallel {
+            description
+                "Parallel Interface";
+            key "Parallel";
+            leaf Parallel {
+                type string;
+            }
+        }
+        list Port-Channel {
+            description
+                "Ethernet Channel of Multiple Interfaces";
+            key "Port-Channel";
+            leaf Port-Channel {
+                type uint32;
+            }
+        }
+        container Port-Channel-SubIf {
+            list Port-Channel {
+                key "Port-Channel";
+                leaf Port-Channel {
+                    type string;
+                }
+            }
+        }
+        list Pseudowire {
+            description
+                "Pseudowire Interface";
+            key "Pseudowire";
+            leaf Pseudowire {
+                type uint32;
+            }
+        }
+        list Serial {
+            description
+                "Serial Interface";
+            key "Serial";
+            leaf Serial {
+                type string;
+            }
+        }
+        container Serial-SubIf {
+            list Serial {
+                key "Serial";
+                leaf Serial {
+                    type string;
+                }
+            }
+        }
+        list SM {
+            description
+                "SM Interface";
+            key "SM";
+            leaf SM {
+                type string;
+            }
+        }
+        list SoftEther {
+            description
+                "SoftEther(R) VPN Tunnel Interface";
+            key "SoftEther";
+            leaf SoftEther {
+                type uint16;
+            }
+        }
+        list SONET {
+            description
+                "Synchronous Optical Network Interface";
+            key "SONET";
+            leaf SONET {
+                type string;
+            }
+        }
+        list Stunnel {
+            description
+                "Stunnel Proxy Service Interface";
+            key "Stunnel";
+            leaf Stunnel {
+                type uint16;
+            }
+        }
+        list Tailscale {
+            description
+                "Tailscale(R) SD-Mesh VPN Interface";
+            key "Tailscale";
+            leaf Tailscale {
+                type uint16;
+            }
+        }
+        list TokenBus {
+            description
+                "IEEE 802.4 Token Bus Network";
+            key "TokenBus";
+            leaf TokenBus {
+                type string;
+            }
+        }
+        list TokenRing {
+            description
+                "IEEE 802.5 Token Ring Interface";
+            key "TokenRing";
+            leaf TokenRing {
+                type string;
+            }
+        }
+        list Tunnel {
+            description
+                "Tunnel Interface"
+            key "Tunnel";
+            leaf Tunnel {
+                type uint32;
+            }
+        }
+        list VCAN {
+            description
+                "Virtual CAN Interface";
+            key "VCAN";
+            leaf VCAN {
+                type uint16;
+            }
+        }
+        list Virtual-Ethernet {
+            description
+                "Virtual Ethernet Tunnel Interface";
+            key "Virtual-Ethernet";
+            leaf Virtual-Ethernet {
+                type uint16;
+            }
+        }
+        list Virtual-PPP {
+            description
+                "Virtual PPP Interface";
+            key "Virtual-PPP";
+            leaf Virtual-PPP {
+                type uint16;
+            }
+        }
+        list Virtual-Template {
+            description
+                "Virtual Template Interface";
+            key "Virtual-Template";
+            leaf Virtual-Template {
+                type uint16;
+            }
+        }
+        list Virtual-TokenRing {
+            description
+                "Virtual Token Ring Interface";
+            key "Virtual-TokenRing";
+            leaf Virtual-TokenRing {
+                type uint16;
+            }
+        }
+        list VirtualPortGroup {
+            description
+                "Virtual Port Group Interface";
+            key "VirtualPortGroup";
+            leaf VirtualPortGroup {
+                type uint16;
+            }
+        }
+        list VLAN {
+            description
+                "VLAN Switched Virtual Interface";
+            key "VLAN";
+            leaf VLAN {
+                type uint16;
+            }
+        }
+        list VXCAN {
+            description
+                "Virtual CAN Tunnel Interface";
+            key "VXCAN";
+            leaf VXCAN {
+                type uint16;
+            }
+        }
+        list WireGuard {
+            description
+                "WireGuard Tunnel Interface";
+            key "WireGuard";
+            leaf WireGuard {
+                type uint16;
+            }
+        }
+        list WLAN {
+            description
+                "Wireless LAN Interface";
+            key "WLAN";
+            leaf WLAN {
+                type string;
+            }
+        }
+        list WPAN {
+            description
+                "Wireless PAN Interface";
+            key "WPAN";
+            leaf WPAN {
+                type string;
+            }
+        }
+        list X25 {
+            description
+                "ISO/IEC X.25 Interface";
+            key "X25";
+            leaf X25 {
+                type string;
+            }
+        }
+        list ZeroTier {
+            description
+                "ZeroTier(R) SD-Mesh VPN Interface";
+            key "ZeroTier";
+            leaf ZeroTier {
+                type uint16;
+            }
+        }
+    }
+
+    grouping passive-interface-grouping {
+        container passive-interface {
+            description
+                "Suppress routing updates on an interface";
+            choice passive-interface-choice {
+                leaf default {
+                    description
+                        "Suppress routing updates on all interfaces";
+                    type empty;
+                }
+                leaf-list interface {
+                    type string;
+                }
+            }
+        }
+        container disable {
+            when '../passive-interface/default';
+            list passive-interface {
+                key "interface";
+                leaf interface {
+                    type string;
+                }
             }
         }
     }
